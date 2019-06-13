@@ -1,5 +1,5 @@
 #+TITLE: Coleslaw Mode Documentation Source
 #+AUTHOR: Spenser Truex
 #+EMAIL: myself@spensertruex.com
-* Docs available as HTML at [[https://spensertruex.com/coleslaw-mode][spensertruex.com]].
-* Coleslaw-mode's Emacs Lisp source on [[https://github.com/equwal/coleslaw][github]].
+*** Docs available as HTML at [[https://spensertruex.com/coleslaw-mode][spensertruex.com]].
+*** Coleslaw-mode's Emacs Lisp source on [[https://github.com/equwal/coleslaw][github]].
