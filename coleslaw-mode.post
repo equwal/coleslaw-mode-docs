@@ -1,0 +1,120 @@
+;;;;;
+title: Coleslaw-mode
+format: cl-who
+date: 2019-06-09
+excerpt: An Emacs mode for authoring Coleslaw posts and pages.
+image: /static/coleslaw.png
+url: coleslaw-mode
+;;;;;
+(:h2 (esc "An Emacs mode for authoring Coleslaw posts and pages."))
+(:h4 "Do What I Mean mode for editing coleslaw. There's not much to learn, just
+use it.")
+(:h4 (esc "What does it do?"))
+(:p (esc "When opening a new .page or .post file, coleslaw mode will help you insert
+the metadata headers for the post. It will also help you choose the right mode,
+based on the format style for the page."))
+(:p (esc "Example metadata header:")
+    (:pre (esc ";;;;;
+title:
+format: user selected, maybe md
+date:
+;;;;;")))
+(:h4 "Keybindings")
+(:ul (:li (esc "M-; → Insert the header"))
+     (:li (esc "That's it.")))
+(:h4 (esc "How do I install it?"))
+(:p (esc "Either from source (via ")
+    (:a :href "Quelpa" "https://framagit.org/steckerhalter/quelpa")
+    (esc ") or from Melpa, if coleslaw-mode is accepted in this version of
+    Melpa. Some .emacs configuration is necessary.")
+    (:pre (esc "(coleslaw-setup)"))
+    (esc "is enough to get you setup with the standard mode decisions of the author."))
+(:h5 "Optional Dependencies")
+(:ul (:li (esc "For markdown syntax highlighting, ")
+          (:a :href "https://jblevins.org/projects/markdown-mode/"
+              "markdown-mode")
+          ".")
+     (:li (esc "For a preview of the markdown, ")
+          (:a :href "https://github.com/niku/markdown-preview-eww"
+              "Markdown-preview-eww")
+          (esc " (via (M/Q)elpa)."))
+     (:li (esc "Note that the eww (Emacs Web Wowser) has special OS level
+     dependencies.")))
+(:h4 (esc "How do I customize it?"))
+(:p (esc "If you don't like the setup the author chose, you can edit the source of
+coleslaw-setup, and put that in your init file. Here I am reproducting the
+source from version 1.1.2, though you should consult the source for an
+up-to-date version."))
+(:pre (esc "(defun coleslaw-setup ()
+  \"Setup your coleslaw like the Author suggests (conservative edits only).
+      Strongly recommended!  Set M-; to `coleslaw-insert-header', enable
+      auto insertion for .page and .post files, enable markdown mode
+      and live preview.\"
+  (require 'markdown-mode)
+  (require 'autoinsert)
+  (require 'lisp-mode)
+  (require 'sgml-mode)
+  (require 'rst)
+  (coleslaw-auto-insert 1)
+  (coleslaw-markdown-mode 1)
+  (coleslaw-lisp-mode 1)
+  (coleslaw-html-mode 1)
+  (coleslaw-rst-mode 1)
+  ((do ((var1 init-form step-form)
+     (var2 init-form step-form))
+    ((cond (test then)
+      (t else))ition return-value)
+    (body))
+
+list (type '(\".page\" \".post\"))
+    (cl-pushnew (cons type 'coleslaw-insert-header) auto-insert-alist))
+  (add-hook 'coleslaw-mode-hook #'flyspell-mode)
+  (add-to-list 'auto-mode-alist '(\"\\.page\\'\" . coleslaw-mode))
+  (add-to-list 'auto-mode-alist '(\"\\.post\\'\" . coleslaw-mode))
+  (define-key coleslaw-mode-map (kbd \"M-;\") 'coleslaw-insert-header))"))
+(:p (esc "There are some configuration choices not built into the default setup:")
+    (:pre (esc " (coleslaw-markdown-live 1)"))
+    (esc "hooks into markdown-live-mode when opening a format md file. This mode
+    opens an EWW browser buffer that updates in realtime as you edit! It also
+    puts annoying .html files all over your code (like the default emacs backup
+    files *~...), so I didn't set it automatically."))
+
+(:h4 "How can I contribute or get help?")
+
+(:p "Coleslaw has a channel on freenode: " (:strong (esc "#coleslaw")))
+(:p "Coleslaw might get a mailing list at some point, and if it did, you could
+subscribe.")
+
+(:h5 "Edit documentation")
+
+(:div :class "press" (:div :class "logo" (:img :src
+                                               "/static/github-logo-low-quality.jpg" :alt "Github's logo"))
+      (:a :href
+          "https://github.com/equwal/coleslaw-mode-docs"
+          "The coleslaw-mode docs are available for free collaboration on
+          github."))
+
+(:div :class "press" (:div :class "logo" (:img :src
+                                               "/static/github-logo-low-quality.jpg" :alt "Github's logo"))
+      (:a :href
+          "https://github.com/equwal/coleslaw" "Source code for coleslaw-mode"))
+
+(:div :class "press"
+      (:div :class "logo"
+            (:img :src "/static/coleslaw.png"
+                  :alt (esc "Coleslaw static content generator
+logo. Plays with ;TODO: he word coleslaw a bit, replacing the O with parentheses, the
+L with a λ, the e with a ∈, and ending with a quod erat demonstrandum marker
+square (tombstone/halmos), □.")))
+      (:a :href "https://github.com/kingcons/coleslaw"
+          "Contribute to coleslaw, the Common Lisp static
+                          content generator."))
+
+(:h4 "TODO")
+
+(:ul (:li "Bind emacs commands for interacting with coleslaw via "
+          (:a :href "https://common-lisp.net/project/slime/" "slime")
+          ". For example: to push up the code, or to commit it.")
+     (:li "Detect format line to enable correct mode in a non-new file.")
+     (:li "Allow for alternative preview mode")
+     (:li "Add org-mode to coleslaw and coleslaw-mode"))
