@@ -7,6 +7,7 @@ image: /static/coleslaw.png
 url: coleslaw-mode
 tags: release
 ;;;;;
+
 (:h2 (esc "An Emacs mode for authoring Coleslaw posts and pages."))
 (:h3 (esc "Beta: Version 0.2.4"))
 (:h4 "Mode for editing "
@@ -104,14 +105,14 @@ subscribe.")
 (:h5 "Edit documentation")
 
 (:div :class "press" (:div :class "logo" (:img :src
-                                               "/static/github-logo-low-quality.jpg" :alt "Github's logo"))
+                                               "/static/github.png" :alt "Github's logo"))
       (:a :href
           "https://github.com/equwal/coleslaw-mode-docs"
           "The coleslaw-mode docs are available for free collaboration on
           github."))
 
 (:div :class "press" (:div :class "logo" (:img :src
-                                               "/static/github-logo-low-quality.jpg" :alt "Github's logo"))
+                                                    "/static/github.png" :alt "Github's logo"))
       (:a :href
           "https://github.com/equwal/coleslaw" "Source code for coleslaw-mode"))
 
